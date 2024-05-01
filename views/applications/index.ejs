@@ -1,0 +1,28 @@
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/sidebar.ejs") %>
+  <h1>My Applications</h1>
+  <div class="application-list-container">
+    <table class="application-table">
+      <thead>
+        <tr class="table-header">
+          <th>Company</th>
+          <th>Position</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="application-entry">
+          <td>CompanyName</td>
+          <td>PositionTitle</td>
+          <td class="application-status">Applied</td>
+          <td><a href="#">View</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/application/new"><button>Add an Application</button></a>
+  </div>
+
+  <a href="#">See more applications</p>
+</body>
+</html>

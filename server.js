@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const authController = require("./controllers/auth.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
-
+const MongoStore = require("connect-mongo");
 
 const User = require('./models/user.js');
 
@@ -24,6 +24,9 @@ app.use(
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
   })
 );
 app.use(passUserToView);
@@ -43,6 +46,10 @@ app.get('/', async (req, res) => {
 app.get('/dashboard', async (req, res) => {
   const foundUser = await User.findOne();
   res.render('dashboard.ejs', { foundUser: foundUser });
+})
+// render applications page
+app.get('/applications', async (req, res) => {
+  res.render('./applications/index.ejs');
 })
 
 const PORT = process.env.PORT || 3000;

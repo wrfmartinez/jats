@@ -14,8 +14,9 @@ router.get('/sign-in', (req, res) => {
 })
 // signs user out
 router.get('/sign-out', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
+  req.session.destroy(() => {
+    res.redirect('/');
+  })
 })
 // sign up and create a user
 router.post('/sign-up', async (req, res) => {
@@ -47,7 +48,9 @@ router.post('/sign-in', async (req, res) => {
   req.session.user = {
     email: userInDatabase.email,
   }
-  res.redirect('/dashboard');
+  req.session.save(() => {
+    res.redirect('/dashboard');
+  })
 })
 
 module.exports = router;
