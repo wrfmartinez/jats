@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
 const methodOverride = require('method-override');
+const session = require('express-session');
 const authController = require("./controllers/auth.js");
 
 /* CONFIGURATIONS */
@@ -10,10 +11,17 @@ const app = express();
 app.use(express.static(path.join(__dirname, "public")));
 // middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
+dotenv.config();
 // middleware for using HTTP verbs such as PUT or DELETE
 app.use(methodOverride("_method"));
-app.use("/auth", authController);
-dotenv.config();
+// automatically manages session data for each user request
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // MONGODB
 mongoose.connect(process.env.MONGODB_URI);
@@ -32,6 +40,7 @@ app.get('/dashboard', async (req, res) => {
 })
 
 const PORT = process.env.PORT || 3000;
+app.use("/auth", authController);
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })

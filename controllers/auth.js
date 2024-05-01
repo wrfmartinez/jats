@@ -12,7 +12,7 @@ router.get('/sign-up', (req, res) => {
 router.get('/sign-in', (req, res) => {
   res.render('auth/sign-in.ejs');
 })
-// Create a user
+// sign up and create a user
 router.post('/sign-up', async (req, res) => {
   if (req.body.password !== req.body.confirmPassword) {
     return res.send('Password and Confirm Password must match');
@@ -24,7 +24,25 @@ router.post('/sign-up', async (req, res) => {
   req.body.confirmPassword = hashedConfirmedPassword;
 
   const user = await User.create(req.body);
-  res.send(`Thanks for signing up ${user.firstName}`);
+  res.redirect('../dashboard.ejs');
+})
+// sign user in
+router.post('/sign-in', async (req, res) => {
+  const userInDatabase = await User.findOne({ email: req.body.email });
+  if (!userInDatabase) {
+    return res.send("Login failed. Please try again.");
+  }
+  const validPassword = bcrypt.compareSync(
+    req.body.password,
+    userInDatabase.password
+  );
+  if (!validPassword) {
+    return res.send("Login failed. Please try again.");
+  }
+  req.session.email = {
+    email: userInDatabase.email,
+  }
+  res.redirect('/dashboard');
 })
 
 module.exports = router;
