@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  password: {
+    type: Number,
+    required: true,
+  },
   desiredPosition: {
     type: String,
     required: true,
