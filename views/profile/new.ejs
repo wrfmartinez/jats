@@ -1,0 +1,13 @@
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/navbar.ejs") %>
+  <h1>Just need a few more information about you...</h1>
+  <form action="/user/new" method="POST">
+    <label for="firstName">What is your desired position?</label>
+    <input type="text" id="firstName" name="firstName" placeholder="Enter first name here">
+    <label for="lastName">Current Location or Preferred Location</label>
+    <input type="text" id="lastName" name="lastName" placeholder="Enter last name here">
+    <input type="submit" value="Finish setting up profile">
+  </form>
+</body>
+</html>

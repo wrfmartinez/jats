@@ -22,23 +22,24 @@ app.get('/', (req, res) => {
 })
 
 // render create account form
-app.get('/create-account', (req, res) => {
+app.get('/new/create-account', (req, res) => {
   res.render('./account/new.ejs');
 })
 
+// render login form
 app.get('/login', (req, res) => {
   res.render('./account/login.ejs');
+})
+
+// renders profile setup page
+app.get('/user/new/profile', (req, res) => {
+  res.render('./profile/new.ejs');
 })
 
 // render dashboard
 app.get('/dashboard', async (req, res) => {
   res.render('dashboard.ejs');
 })
-
-// // create a new user
-// app.post('/user/new', (req, res) => {
-
-// })
 
 const PORT = 3000;
 app.listen(PORT, () => {
