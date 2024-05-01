@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 
 // render dashboard
 app.get('/dashboard', async (req, res) => {
-  res.send("Hi dash");
+  res.render('dashboard.ejs');
 })
 
 const PORT = 3000;
