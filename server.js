@@ -2,11 +2,17 @@ const express = require('express');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const path = require('path');
+const methodOverride = require('method-override');
+const authController = require("./controllers/auth.js");
 
 /* CONFIGURATIONS */
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
+// middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
+// middleware for using HTTP verbs such as PUT or DELETE
+app.use(methodOverride("_method"));
+app.use("/auth", authController);
 dotenv.config();
 
 // MONGODB
@@ -20,28 +26,12 @@ mongoose.connection.on(`connected`, () => {
 app.get('/', (req, res) => {
   res.render('index.ejs');
 })
-
-// render create account form
-app.get('/new/create-account', (req, res) => {
-  res.render('./account/new.ejs');
-})
-
-// render login form
-app.get('/login', (req, res) => {
-  res.render('./account/login.ejs');
-})
-
-// renders profile setup page
-app.get('/user/new/profile', (req, res) => {
-  res.render('./profile/new.ejs');
-})
-
 // render dashboard
 app.get('/dashboard', async (req, res) => {
   res.render('dashboard.ejs');
 })
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 })
