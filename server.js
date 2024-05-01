@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 })
 
 // render signup form
-app.get('/sign-up', (req, res) => {
+app.get('/create-account', (req, res) => {
   res.render('./account/new.ejs');
 })
 
