@@ -7,7 +7,7 @@ dotenv.config();
 
 // ROUTES
 app.get('/', (req, res) => {
-  res.send("We made it");
+  res.render('index.ejs');
 })
 
 const PORT = 3000;
