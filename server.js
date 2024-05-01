@@ -53,8 +53,13 @@ app.get('/application', async (req, res) => {
   res.render('./applications/index.ejs');
 })
 // render create applications page
-app.get('/application/new', async (req, res) => {
+app.get('/application/new', (req, res) => {
   res.render('./applications/new.ejs');
+})
+// create a new application entry
+app.post('/application/new', async (req, res) => {
+  const application = await Application.create(req.body);
+  res.redirect('/application');
 })
 
 const PORT = process.env.PORT || 3000;
