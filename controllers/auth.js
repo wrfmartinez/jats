@@ -12,6 +12,11 @@ router.get('/sign-up', (req, res) => {
 router.get('/sign-in', (req, res) => {
   res.render('auth/sign-in.ejs');
 })
+// signs user out
+router.get('/sign-out', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+})
 // sign up and create a user
 router.post('/sign-up', async (req, res) => {
   if (req.body.password !== req.body.confirmPassword) {
@@ -39,7 +44,7 @@ router.post('/sign-in', async (req, res) => {
   if (!validPassword) {
     return res.send("Login failed. Please try again.");
   }
-  req.session.email = {
+  req.session.user = {
     email: userInDatabase.email,
   }
   res.redirect('/dashboard');

@@ -1,5 +1,10 @@
 <nav>
   <a href="/"><h2 class="nav-brand">JATS</h2></a>
-  <a href="/auth/sign-in"><button>Sign in</button></a>
-  <a href="/auth/sign-up"><button>Create Account</button></a>
+  <% if (user) { %>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/auth/sign-out"><button>Sign out</button></a>
+  <% } else { %>
+    <a href="/auth/sign-in"><button>Sign in</button></a>
+    <a href="/auth/sign-up"><button>Create Account</button></a>
+  <% } %>
 </nav>

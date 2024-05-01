@@ -5,6 +5,10 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const authController = require("./controllers/auth.js");
+const passUserToView = require("./middleware/pass-user-to-view.js");
+
+
+const User = require('./models/user.js');
 
 /* CONFIGURATIONS */
 const app = express();
@@ -22,6 +26,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(passUserToView);
 
 // MONGODB
 mongoose.connect(process.env.MONGODB_URI);
@@ -31,12 +36,13 @@ mongoose.connection.on(`connected`, () => {
 
 /* ROUTES*/
 // render landing page
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   res.render('index.ejs');
 })
 // render dashboard
 app.get('/dashboard', async (req, res) => {
-  res.render('dashboard.ejs');
+  const foundUser = await User.findOne();
+  res.render('dashboard.ejs', { foundUser: foundUser });
 })
 
 const PORT = process.env.PORT || 3000;
