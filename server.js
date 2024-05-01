@@ -21,12 +21,20 @@ app.get('/', (req, res) => {
   res.render('index.ejs');
 })
 
+// render signup form
+app.get('/sign-up', (req, res) => {
+  res.send('Sign Up');
+})
+
 // render dashboard
 app.get('/dashboard', async (req, res) => {
   res.render('dashboard.ejs');
 })
 
+// create a new account
+app.post('/sign-up', (req, res) => {
 
+})
 
 const PORT = 3000;
 app.listen(PORT, () => {
