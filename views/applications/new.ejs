@@ -1,0 +1,23 @@
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/sidebar.ejs") %>
+  <form action="/applications/new" method="POST">
+    <label for="companyName">Company</label>
+    <input id="companyName" name="companyName" type="text" placeholder="e.g Google">
+    <label for="positionTitle">Position</label>
+    <input id="positionTitle" name="positionTitle" type="text" placeholder="e.g Software Engineer">
+    <label for="status">Application Status</label>
+    <select class="status-selections" id="status" name="status">
+      <option value="">Set a status</option>
+      <option value="applied" class="applied">Applied</option>
+      <option value="interested" class="interested">Interested</option>
+      <option value="Interviewing" class="interviewing">Interviewing</option>
+    </select>
+    <label for="jobRequirements">Any Job Requirements</label>
+    <textarea id="jobRequirements" name="jobRequirements" cols="40" rows="10"  placeholder="e.g Requires experience in the following: Microservices; Apache Kafka; Docker; J2EE; Spring; REST; SOAP; Maven; JSON; and GIT."></textarea>
+    <label for="notes">Notes</label>
+    <textarea id="notes" name="notes" cols="40" rows="10" placeholder="e.g A buddy recommended this opportunity to me. TODO: need to follow up"></textarea>
+    <input type="submit" value="Add Application">
+  </form>
+</body>
+</html>

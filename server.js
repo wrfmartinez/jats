@@ -9,6 +9,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 const MongoStore = require("connect-mongo");
 
 const User = require('./models/user.js');
+const Application = require('./models/application.js');
 
 /* CONFIGURATIONS */
 const app = express();
@@ -48,8 +49,12 @@ app.get('/dashboard', async (req, res) => {
   res.render('dashboard.ejs', { foundUser: foundUser });
 })
 // render applications page
-app.get('/applications', async (req, res) => {
+app.get('/application', async (req, res) => {
   res.render('./applications/index.ejs');
+})
+// render create applications page
+app.get('/application/new', async (req, res) => {
+  res.render('./applications/new.ejs');
 })
 
 const PORT = process.env.PORT || 3000;
