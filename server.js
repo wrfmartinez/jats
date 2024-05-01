@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 // render signup form
 app.get('/sign-up', (req, res) => {
-  res.send('Sign Up');
+  res.render('./account/new.ejs');
 })
 
 // render dashboard
@@ -31,10 +31,10 @@ app.get('/dashboard', async (req, res) => {
   res.render('dashboard.ejs');
 })
 
-// create a new account
-app.post('/sign-up', (req, res) => {
+// // create a new user
+// app.post('/user/new', (req, res) => {
 
-})
+// })
 
 const PORT = 3000;
 app.listen(PORT, () => {
