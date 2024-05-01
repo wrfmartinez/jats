@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 
 // CONFIGURATIONS
 const app = express();
+
 dotenv.config();
 
 // ROUTES
