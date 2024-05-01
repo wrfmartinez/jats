@@ -21,9 +21,13 @@ app.get('/', (req, res) => {
   res.render('index.ejs');
 })
 
-// render signup form
+// render create account form
 app.get('/create-account', (req, res) => {
   res.render('./account/new.ejs');
+})
+
+app.get('/login', (req, res) => {
+  res.render('./account/login.ejs');
 })
 
 // render dashboard
