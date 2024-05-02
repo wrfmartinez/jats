@@ -50,9 +50,82 @@ nav {
   background: linear-gradient(120deg, rgb(30, 105, 49) 20%, rgba(53,184,60,1) 100%);
 }
 
+/* NAV SIDEBAR */
+.dashboard-container {
+  display: flex;
+  color: #fafafa;
+}
+
+/* This is backwards since it's adapting styles from the nav */
+.nav-sidebar {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-right: 1px solid #565656;
+  border-radius: 10px;
+  padding: 20px 0 0 60px;
+  margin-right: 50px;
+  position: unset;
+  width: 17%;
+  height: 100vh;
+}
+
+h2.sidebar-logo {
+  font-size: 30px;
+  background-color: #fafafa;
+  border-radius: 5px;
+  padding: 6px 15px;
+  margin-left: 8px;
+}
+
+.sidebar-logo a {
+  color: #070707;
+  text-decoration: none;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 800;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  padding-bottom: 35px;
+}
+
+.nav-link {
+  color: #fafafa;
+  text-decoration: none;
+  padding: 8px;
+}
+
+.nav-link:hover {
+  background-color: #1d1d1d;
+  border-radius: 4px;
+}
+
+.sign-out-btn button {
+  color: #fafafa;
+  background-color: transparent;
+  border: none;
+  padding: 5px;
+  margin-left: 8px;
+}
+
+.sign-out-btn button:hover {
+  cursor: pointer;
+  border: 1px solid #727272;
+  border-radius: 5px;
+}
+
 @media (max-width: 1000px) {
   nav {
     padding: 0 50px;
+  }
+
+  .nav-sidebar {
+    width: 100%;
   }
 }
 

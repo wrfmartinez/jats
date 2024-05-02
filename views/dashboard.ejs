@@ -1,6 +1,12 @@
 <%- include("./partials/head.ejs") %>
-<body>
-  <%- include("./partials/sidebar.ejs") %>
-  <h1>Welcome back, <%= user.firstName %></h1>
-</body>
-</html>
+
+  <body>
+    <main class="dashboard-container">
+      <%- include("./partials/sidebar.ejs") %>
+        <div class="user-content-container">
+          <h1>Welcome back, <%= user.firstName %></h1>
+        </div>
+    </main>
+  </body>
+
+  </html>
