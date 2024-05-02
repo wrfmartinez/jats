@@ -30,7 +30,7 @@ router.post('/sign-up', async (req, res) => {
   req.body.confirmPassword = hashedConfirmedPassword;
 
   const user = await User.create(req.body);
-  res.redirect('../dashboard.ejs');
+  res.redirect('/');
 })
 // sign user in
 router.post('/sign-in', async (req, res) => {
@@ -47,6 +47,10 @@ router.post('/sign-in', async (req, res) => {
   }
   req.session.user = {
     email: userInDatabase.email,
+    firstName: userInDatabase.firstName,
+    lastName: userInDatabase.lastName,
+    desiredPosition: userInDatabase.desiredPosition,
+    location: userInDatabase.location,
   }
   req.session.save(() => {
     res.redirect('/dashboard');

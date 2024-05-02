@@ -10,7 +10,6 @@ const MongoStore = require("connect-mongo");
 
 const User = require('./models/user.js');
 const Application = require('./models/application.js');
-const application = require('./models/application.js');
 
 /* CONFIGURATIONS */
 const app = express();
@@ -46,8 +45,7 @@ app.get('/', async (req, res) => {
 })
 // render dashboard
 app.get('/dashboard', async (req, res) => {
-  const foundUser = await User.findOne();
-  res.render('dashboard.ejs', { foundUser: foundUser });
+  res.render('dashboard.ejs');
 })
 // render applications page
 app.get('/application', async (req, res) => {
@@ -77,6 +75,11 @@ app.post('/application/new', async (req, res) => {
 app.put('/application/:applicationId/edit', async (req, res) => {
   const applicationToEdit = await Application.findByIdAndUpdate(req.params.applicationId, req.body);
   res.redirect(`/application/${req.params.applicationId}`);
+})
+// delete an application
+app.delete('/application/:applicationId', async (req, res) => {
+  const application = await Application.findByIdAndDelete(req.params.applicationId);
+  res.redirect('/application');
 })
 
 const PORT = process.env.PORT || 3000;

@@ -4,23 +4,24 @@
   <h1>My Applications</h1>
   <div class="application-list-container">
     <table class="application-table">
-      <% applications.forEach(application => { %>
-        <thead>
-          <tr class="table-header">
-            <th>Company</th>
-            <th>Position</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
+      <thead>
+        <tr class="table-header">
+          <th>Company</th>
+          <th>Position</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% applications.forEach(application => { %>
           <tr class="application-entry">
             <td><%= application.companyName %></td>
             <td><%= application.positionTitle %></td>
             <td class="application-status"><%= application.status %></td>
             <td><a href="/application/<%=application._id%>">View</a></td>
+            <td><form action="/application/<%=application._id%>?_method=DELETE" method="POST"><input type="submit" value="Delete ✕"></form></td>
           </tr>
-        </tbody>
-      <% }) %>
+        <% }) %>
+      </tbody>
     </table>
     <a href="/application/new"><button>Add an Application</button></a>
   </div>

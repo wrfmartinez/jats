@@ -20,7 +20,7 @@ const applicationSchema = mongoose.Schema({
   notes: {
     type: String,
     required: false,
-  }
+  },
 })
 
 module.exports = mongoose.model('Application', applicationSchema);
