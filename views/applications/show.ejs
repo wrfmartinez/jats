@@ -1,0 +1,14 @@
+<%- include("../partials/head.ejs") %>
+<body>
+  <%- include("../partials/sidebar.ejs") %>
+  <h1><%= application.companyName %></h1>
+  <a href="/application/<%=application._id%>/edit">Edit ✎</a>
+  <h2><%= application.positionTitle %></h2>
+  <h3>Application Status</h3>
+  <p><%= application.status %></p>
+  <h3>Job Requirements</h3>
+  <p><%= application.jobRequirements %></p>
+  <h3>Notes</h3>
+  <p><%= application.notes %></p>
+</body>
+</html>

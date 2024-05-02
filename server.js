@@ -10,6 +10,7 @@ const MongoStore = require("connect-mongo");
 
 const User = require('./models/user.js');
 const Application = require('./models/application.js');
+const application = require('./models/application.js');
 
 /* CONFIGURATIONS */
 const app = express();
@@ -50,18 +51,33 @@ app.get('/dashboard', async (req, res) => {
 })
 // render applications page
 app.get('/application', async (req, res) => {
-  res.render('./applications/index.ejs');
+  const applications = await Application.find();
+  res.render('./applications/index.ejs', { applications: applications });
 })
 // render create applications page
 app.get('/application/new', (req, res) => {
   res.render('./applications/new.ejs');
+})
+// view a specific application
+app.get('/application/:applicationId', async (req, res) => {
+  const foundApplication = await Application.findById(req.params.applicationId);
+  res.render('./applications/show.ejs', { application: foundApplication });
+})
+// show edit application page
+app.get('/application/:applicationId/edit', async (req, res) => {
+  const applicationToEdit = await Application.findById(req.params.applicationId);
+  res.render('./applications/edit.ejs', { application: applicationToEdit })
 })
 // create a new application entry
 app.post('/application/new', async (req, res) => {
   const application = await Application.create(req.body);
   res.redirect('/application');
 })
-
+// edit an application
+app.put('/application/:applicationId/edit', async (req, res) => {
+  const applicationToEdit = await Application.findByIdAndUpdate(req.params.applicationId, req.body);
+  res.redirect(`/application/${req.params.applicationId}`);
+})
 const PORT = process.env.PORT || 3000;
 app.use("/auth", authController);
 app.listen(PORT, () => {
