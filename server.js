@@ -13,7 +13,7 @@ const Application = require('./models/application.js');
 
 /* CONFIGURATIONS */
 const app = express();
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static('public'));
 // middleware to parse URL-encoded data from forms
 app.use(express.urlencoded({ extended: false }));
 dotenv.config();
