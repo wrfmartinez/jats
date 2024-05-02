@@ -78,6 +78,7 @@ app.put('/application/:applicationId/edit', async (req, res) => {
   const applicationToEdit = await Application.findByIdAndUpdate(req.params.applicationId, req.body);
   res.redirect(`/application/${req.params.applicationId}`);
 })
+
 const PORT = process.env.PORT || 3000;
 app.use("/auth", authController);
 app.listen(PORT, () => {
