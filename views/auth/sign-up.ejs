@@ -1,7 +1,8 @@
 <%- include("../../views/partials/head.ejs") %>
 <body>
   <%- include("../../views/partials/navbar.ejs") %>
-  <h1>Let's get you started by creating an account</h1>
+  <div class="sign-up-form">
+    <h1>Let's get you started by creating an account</h1>
   <form action="/auth/sign-up" method="POST">
     <label for="firstName">First Name</label>
     <input type="text" id="firstName" name="firstName" placeholder="Enter first name here">
@@ -14,10 +15,11 @@
     <label for="confirmPassword">Confirm Password</label>
     <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password here">
     <label for="desiredPosition">What is your desired position?</label>
-    <input type="text" id="desiredPosition" name="desiredPosition" placeholder="Enter first name here">
+    <input type="text" id="desiredPosition" name="desiredPosition" placeholder="Enter desired position here">
     <label for="location">Current Location or Preferred Location</label>
-    <input type="text" id="location" name="location" placeholder="Enter last name here">
+    <input type="text" id="location" name="location" placeholder="Enter city and state here">
     <input type="submit" value="Sign up">
   </form>
+  </div>
 </body>
 </html>

@@ -1,10 +1,16 @@
 <nav>
-  <a href="/"><h2 class="nav-brand">JATS</h2></a>
+  <a class="nav-brand" href="/">
+    <h2>jAts</h2>
+  </a>
   <% if (user) { %>
-    <a href="/dashboard">Dashboard</a>
-    <a href="/auth/sign-out"><button>Sign out</button></a>
-  <% } else { %>
-    <a href="/auth/sign-in"><button>Sign in</button></a>
-    <a href="/auth/sign-up"><button>Create Account</button></a>
-  <% } %>
+    <div class="nav-btns">
+      <a href="/dashboard">Dashboard</a>
+      <a href="/auth/sign-out"><button>Sign out</button></a>
+    </div>
+    <% } else { %>
+      <div class="nav-btns">
+        <a href="/auth/sign-in"><button>Sign in</button></a>
+        <a href="/auth/sign-up"><button>Create Account</button></a>
+      </div>
+      <% } %>
 </nav>
