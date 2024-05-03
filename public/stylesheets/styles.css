@@ -255,7 +255,7 @@ input[type="submit"]:hover {
   padding: 0 130px 40px 80px;
 }
 
-.user-content-container h1 {
+.application-home-heading{
   margin-bottom: 53px;
 }
 
@@ -430,6 +430,72 @@ textarea {
 
 .new-application-form button:hover {
   cursor: pointer;
+}
+
+/* APPLICATION VIEW */
+
+.company-name {
+  font-size: 48px;
+  font-weight: 500;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgb(43, 43, 43);
+}
+
+.card {
+  background-color: #3333336d;
+  border-radius: 7px;
+  padding: 20px;
+  width: 40%;
+}
+
+.update-btn {
+  color: #75b5f5;
+  text-decoration: none;
+}
+
+.update-btn:hover {
+  color: #75b5f5b8;
+}
+
+.update-txt {
+  font-size: 15px;
+}
+
+.position-title {
+  font-weight: 500;
+  padding-top: 20px;
+}
+
+.back-btn {
+  display: block;
+  margin-top: 50px;
+  text-decoration: none;
+}
+
+.back-btn button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fafafa;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.back-btn button:hover {
+  cursor: pointer;
+  color: #fafafab9;
+  transition: 0.3s;
+  gap: 12px;
+}
+
+.back-txt {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 @media (max-width: 1000px) {
