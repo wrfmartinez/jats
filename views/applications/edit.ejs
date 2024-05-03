@@ -3,9 +3,9 @@
   <%- include("../partials/sidebar.ejs") %>
   <form action="/application/<%=application._id%>/edit?_method=PUT" method="POST">
     <label for="companyName">Company</label>
-    <input id="companyName" name="companyName" type="text" placeholder="e.g Google" value="<%= application.companyName %>">
+    <input id="companyName" name="companyName" type="text" placeholder="e.g Google" value="<%= application.companyName %>" required>
     <label for="positionTitle">Position</label>
-    <input id="positionTitle" name="positionTitle" type="text" placeholder="e.g Software Engineer" value="<%= application.positionTitle %>">
+    <input id="positionTitle" name="positionTitle" type="text" placeholder="e.g Software Engineer" value="<%= application.positionTitle %>" required>
     <label for="status">Application Status</label>
     <select class="status-selections" id="status" name="status">
       <option value="">Choose a status</option>
