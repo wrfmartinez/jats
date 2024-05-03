@@ -4,12 +4,13 @@
   box-sizing: border-box;
 }
 
-body {
+body, main {
   margin: 0;
   padding: 0;
   font-family: Inter, -apple-system, sans-serif;
   background-color: #101010;
   color: #fafafa;
+  height: 100vh;
 }
 
 /* NAV */
@@ -68,7 +69,7 @@ nav {
   margin-right: 50px;
   position: unset;
   width: 300px;
-  height: 100vh;
+  height: unset;
 }
 
 h2.sidebar-logo {
@@ -133,8 +134,9 @@ h2.sidebar-logo {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    position: absolute;
+    position: fixed;
     border: none;
+    background-color: #101010;
   }
 
   .nav-links {
@@ -470,6 +472,7 @@ textarea {
   display: block;
   margin-top: 50px;
   text-decoration: none;
+  padding-bottom: 30px;
 }
 
 .back-btn button {
@@ -498,8 +501,57 @@ h3 {
   font-weight: 500;
 }
 
+/* APPLICATION EDIT */
+
+.application-form {
+  display: flex;
+  padding-top: 100px;
+  justify-content: center;
+  gap: 50px;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
 @media (max-width: 1000px) {
   .user-content-container {
     padding: 100px 20px;
+  }
+
+  .user-content-container.mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .user-content-container.mobile h1 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .card {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .application-form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px 100px;
+  }
+
+  .form-card {
+    width: 100%;
+  }
+
+  .application-form input, .application-form select, .application-form textarea {
+    width: 100%;
   }
 }
