@@ -4,8 +4,32 @@
     <main class="dashboard-container">
       <%- include("./partials/sidebar.ejs") %>
         <div class="user-content-container">
-          <h1>Welcome back, <%= user.firstName %></h1>
+          <div class="main-dashboard">
+          <h1 class="dashboard-greeting">Welcome back, <%= user.firstName %></h1>
+          <% const dailyTarget = 30 %>
+          <% let postCounter = 0 %>
+          <!-- count amount of applications posted within a date -->
+          <% const date = new Date() %>
+          <% const formatDate = date.toLocaleDateString() %>
+          <% let postDate = null %>
+          <% applications.forEach(application => { %>
+            <% if (application.datePosted) { %>
+            <!-- format application post date -->
+            <% postDate = application.datePosted %>
+            <% postDate = postDate.toLocaleDateString() %>
+            <% if (formatDate === postDate) { %>
+              <% postCounter++ %>
+            <% } %>
+           <% } %>
+          <% }) %>
+          <% // Show message to user based on whether target goal was met or not %>
+          <% if (postCounter === dailyTarget) { %>
+            <h2 class="goal-tracker">Daily Goal: <span class="animate-counter"><%= postCounter %></span> out of <span class="target"><%= dailyTarget %></span></h2>
+          <% } else { %>
+            <h2 class="goal-tracker">Daily Goal: <span class="progress-counter"><%= postCounter %></span> out of <span class="target"><%= dailyTarget %></span></h2>
+          <% } %>
         </div>
+      </div>
     </main>
   </body>
 

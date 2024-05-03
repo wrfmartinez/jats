@@ -19,6 +19,8 @@
     <textarea id="jobRequirements" name="jobRequirements" rows="10"  placeholder="e.g Requires experience in the following: Microservices; Apache Kafka; Docker; J2EE; Spring; REST; SOAP; Maven; JSON; and GIT."></textarea>
     <label for="notes">Notes</label>
     <textarea id="notes" name="notes" cols="40" rows="10" placeholder="e.g A buddy recommended this opportunity to me. TODO: need to follow up"></textarea>
+    <% const date = new Date() %>
+    <textarea id="datePosted" name="datePosted" rows="1" readonly><%= date.toLocaleDateString() %></textarea>
     <button><i class="fa-solid fa-plus"></i> Add</button>
   </form>
 </div>

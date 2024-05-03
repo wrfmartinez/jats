@@ -45,7 +45,8 @@ app.get('/', async (req, res) => {
 })
 // render dashboard
 app.get('/dashboard', async (req, res) => {
-  res.render('dashboard.ejs');
+  const applications = await Application.find();
+  res.render('dashboard.ejs', { applications: applications });
 })
 // render applications page
 app.get('/application', async (req, res) => {

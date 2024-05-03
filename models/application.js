@@ -21,6 +21,7 @@ const applicationSchema = mongoose.Schema({
     type: String,
     required: false,
   },
+  datePosted: Date,
 })
 
 module.exports = mongoose.model('Application', applicationSchema);
