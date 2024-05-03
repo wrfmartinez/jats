@@ -7,6 +7,8 @@ const session = require('express-session');
 const authController = require("./controllers/auth.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
 const MongoStore = require("connect-mongo");
+const fetch = require('node-fetch');
+const cron = require('node-cron');
 
 const User = require('./models/user.js');
 const Application = require('./models/application.js');
@@ -38,6 +40,13 @@ mongoose.connection.on(`connected`, () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}`);
 })
 
+const getQuote = async () => {
+  const QUOTE_URL = "https://quote-garden.onrender.com/api/v3/quotes/random";
+  const res = await fetch(QUOTE_URL, ["work"]);
+  const resObj = await res.json();
+  return resObj.data;
+}
+
 /* ROUTES*/
 // render landing page
 app.get('/', async (req, res) => {
@@ -45,8 +54,10 @@ app.get('/', async (req, res) => {
 })
 // render dashboard
 app.get('/dashboard', async (req, res) => {
-  const applications = await Application.find();
-  res.render('dashboard.ejs', { applications: applications });
+  let randomQuote = null;
+  const applications = await Application.find()
+  randomQuote = await getQuote();
+  res.render('dashboard.ejs', { applications: applications, randomQuote: randomQuote });
 })
 // render applications page
 app.get('/application', async (req, res) => {
