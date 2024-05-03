@@ -8,7 +8,6 @@ const authController = require("./controllers/auth.js");
 const passUserToView = require("./middleware/pass-user-to-view.js");
 const MongoStore = require("connect-mongo");
 const fetch = require('node-fetch');
-const cron = require('node-cron');
 
 const User = require('./models/user.js');
 const Application = require('./models/application.js');
