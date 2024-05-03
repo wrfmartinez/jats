@@ -25,19 +25,36 @@
                     <td>
                       <%= application.positionTitle %>
                     </td>
-                    <td class="application-status">
-                      <%= application.status %>
-                    </td>
-                    <td class="view-link"><a href="/application/<%=application._id%>"><button><i class="fa-regular fa-eye"></i></button></a></td>
-                    <td>
-                      <form action="/application/<%=application._id%>?_method=DELETE" method="POST"><button><i class="fa-solid fa-trash"></i></button></form>
-                    </td>
+                    <% if (application.status==="Applied" ) { %>
+                      <td class="status">
+                        <div class="status-applied"><%= application.status %></div>
+                      </td>
+                      <% } else if (application.status==="Interviewing" ) { %>
+                        <td class="status">
+                          <div class="status-interviewing"><%= application.status %></div>
+                        </td>
+                        <% } else if (application.status==="Interested" ) { %>
+                          <td class="status">
+                            <div class="status-interested"><%= application.status %></div>
+                          </td>
+                          <% } else { %>
+                            <td class="status">
+                              <div class="application-status">N/A</div>
+                            </td>
+                            <% } %>
+                              <td class="view-link"><a href="/application/<%=application._id%>"><button><i
+                                      class="fa-regular fa-eye"></i></button></a></td>
+                              <td>
+                                <form action="/application/<%=application._id%>?_method=DELETE" method="POST"><button><i
+                                      class="fa-solid fa-trash"></i></button></form>
+                              </td>
                   </tr>
                   <% }) %>
               </tbody>
             </table>
           </div>
-          <a href="/application/new"><button>Add an Application</button></a>
+          <a class="add-btn" href="/application/new"><button><i class="fa-solid fa-plus"></i> New
+              Application</button></a>
         </div>
     </main>
   </body>

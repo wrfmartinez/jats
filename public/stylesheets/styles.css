@@ -134,6 +134,7 @@ h2.sidebar-logo {
     align-items: center;
     padding: 0 20px;
     position: absolute;
+    border: none;
   }
 
   .nav-links {
@@ -267,11 +268,13 @@ input[type="submit"]:hover {
 
 .application-table {
   width: 100%;
+  padding-bottom: 2px;
 }
 
 tr, td {
   border-right: 1px solid #3B4358;
-  padding-left: 10px;
+  border-bottom: 1px solid #3B4358;
+  padding: 9px 0px 9px 9px;
 }
 
 .table-heading {
@@ -293,9 +296,63 @@ tr, td {
   border-bottom: 1px solid #3B4358;
 }
 
+td.status {
+  display: flex;
+  justify-content: center;
+}
+
+.application-status {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  background-color: #3f3f3f85;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.status-applied {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  background-color: #288aec;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.status-interviewing {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  background-color: #18b17485;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.status-interested {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  background-color: #fdd90db7;
+  border: 1px solid #333;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
+  margin-right: 10px;
+}
+
 .view-link {
   text-align: center;
   padding: 0;
+  border-bottom: 1px solid #3B4358;
 }
 
 .view-link button {
@@ -315,6 +372,7 @@ tr, td {
 .application-entry td:last-child {
   text-align: center;
   border-right: none;
+  border-bottom: 1px solid #3B4358;
 }
 
 .application-entry td:last-child button {
@@ -330,8 +388,48 @@ tr, td {
   transform: scale(1.1);
 }
 
+.add-btn button {
+  color: #fafafa;
+  margin-top: 20px;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+}
+
+.add-btn button:hover {
+  cursor: pointer;
+}
+
+/* NEW APPLICATION */
+
+.new-application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 100px;
+}
+
+.status-selections {
+  padding: 9px;
+}
+
 textarea {
-  white-space: pre;
+  font-family: Inter, -apple-system, sans-serif;
+  font-weight: 600;
+  white-space: inherit;
+  overflow-wrap: break-word;
+}
+
+.new-application-form button {
+  color: #fafafa;
+  margin-top: 20px;
+  font-size: 15px;
+  background-color: transparent;
+  border: none;
+}
+
+.new-application-form button:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 1000px) {
