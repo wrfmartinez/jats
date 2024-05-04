@@ -20,6 +20,8 @@ router.get('/sign-out', (req, res) => {
 })
 // sign up and create a user
 router.post('/sign-up', async (req, res) => {
+  const userInDatabase = await User.findOne({ email: req.body.email });
+
   if (req.body.password !== req.body.confirmPassword) {
     return res.send('Password and Confirm Password must match');
   }

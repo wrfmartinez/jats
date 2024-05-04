@@ -21,6 +21,7 @@
     <textarea id="notes" name="notes" cols="40" rows="10" placeholder="e.g A buddy recommended this opportunity to me. TODO: need to follow up"></textarea>
     <% const date = new Date() %>
     <textarea id="datePosted" name="datePosted" rows="1" readonly><%= date.toLocaleDateString() %></textarea>
+    <textarea class="" id="createdBy" name="createdBy" rows="1" readonly><%= user.email %></textarea>
     <button><i class="fa-solid fa-plus"></i> Add</button>
   </form>
 </div>

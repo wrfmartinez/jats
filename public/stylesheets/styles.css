@@ -13,6 +13,18 @@ body, main {
   height: 100vh;
 }
 
+a {
+  color: #fafafa;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
 /* NAV */
 
 nav {

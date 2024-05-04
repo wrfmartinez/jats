@@ -54,13 +54,13 @@ app.get('/', async (req, res) => {
 // render dashboard
 app.get('/dashboard', async (req, res) => {
   let randomQuote = null;
-  const applications = await Application.find()
+  const applications = await Application.find({ createdBy: req.session.user.email });
   randomQuote = await getQuote();
   res.render('dashboard.ejs', { applications: applications, randomQuote: randomQuote });
 })
 // render applications page
 app.get('/application', async (req, res) => {
-  const applications = await Application.find();
+  const applications = await Application.find({ createdBy: req.session.user.email });
   res.render('./applications/index.ejs', { applications: applications });
 })
 // render create applications page

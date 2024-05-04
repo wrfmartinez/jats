@@ -22,6 +22,7 @@ const applicationSchema = mongoose.Schema({
     required: false,
   },
   datePosted: Date,
+  createdBy: String,
 })
 
 module.exports = mongoose.model('Application', applicationSchema);
