@@ -55,7 +55,7 @@ app.get('/', async (req, res) => {
 // calls the getQuote API function then passes it to the dashboard view
 app.get('/dashboard', async (req, res) => {
   const applications = await Application.find({ createdBy: req.session.user.email });
-  res.render('dashboard.ejs');
+  res.render('dashboard.ejs', { applications: applications });
 })
 // render applications page and locates specific applications that are associated with the logged in user
 app.get('/application', async (req, res) => {
