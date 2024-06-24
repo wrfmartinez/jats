@@ -40,12 +40,12 @@ mongoose.connection.on(`connected`, () => {
 })
 
 // Quote Garden API fetch request
-const getQuote = async () => {
-  const QUOTE_URL = "https://quote-garden.onrender.com/api/v3/quotes/random";
-  const res = await fetch(QUOTE_URL, ["work"]);
-  const resObj = await res.json();
-  return resObj.data;
-}
+// const getQuote = async () => {
+//   const QUOTE_URL = "https://quote-garden.onrender.com/api/v3/quotes/random";
+//   const res = await fetch(QUOTE_URL, ["work"]);
+//   const resObj = await res.json();
+//   return resObj.data;
+// }
 
 /* ROUTES*/
 app.get('/', async (req, res) => {
@@ -56,7 +56,7 @@ app.get('/', async (req, res) => {
 app.get('/dashboard', async (req, res) => {
   const randomQuote = await getQuote();
   const applications = await Application.find({ createdBy: req.session.user.email });
-  res.render('dashboard.ejs', { applications: applications, randomQuote: randomQuote });
+  res.render('dashboard.ejs');
 })
 // render applications page and locates specific applications that are associated with the logged in user
 app.get('/application', async (req, res) => {
@@ -87,7 +87,7 @@ app.delete('/application/:applicationId', async (req, res) => {
   res.redirect('/application');
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 app.use("/auth", authController);
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
