@@ -54,7 +54,6 @@ app.get('/', async (req, res) => {
 // render dashboard and pass applications that are related to the specific user that is logged in
 // calls the getQuote API function then passes it to the dashboard view
 app.get('/dashboard', async (req, res) => {
-  const randomQuote = await getQuote();
   const applications = await Application.find({ createdBy: req.session.user.email });
   res.render('dashboard.ejs');
 })
