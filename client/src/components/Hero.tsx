@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
-    <div className="hero relative h-[700px] flex flex-col items-center justify-center pt-10 lg:flex-row lg:justify-between lg:items-start lg:pl-[3.5rem] lg:pr-[3.5rem]">
+    <div className="hero mx-auto relative h-[550px] lg:h-[700px] flex flex-col items-center justify-center pt-10 max-w-7xl p-6 mb-12 lg:mb-80 lg:flex-row lg:justify-between lg:items-start">
       <h1 className="text-center text-5xl font-medium lg:text-start lg:text-[7rem]">
-        Stay <span className="block">organized</span>and{" "}
+        Stay <span className="block">organized</span>and
         <span className="block">motivated</span>Get hired.
       </h1>
       <img
-        className="hidden arrow absolute -top-16 origin-bottom-right -skew-x-[12deg] skew-y-[-9deg] md:block"
-        src="../../public/arrow.svg"
+        className="hidden arrow z-[-1] absolute -top-16 origin-bottom-right -skew-x-[12deg] skew-y-[-9deg] md:block"
+        src="/arrow.svg"
         alt="arrow"
       />
       <div className="h-[600px] flex flex-col justify-between">
@@ -25,7 +25,7 @@ const Hero = () => {
         >
           <p>Seamless & Easy to Use</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center lg:justify-end">
           <Link to="/create-account">
             <button className="text-zinc-900 bg-white p-2 rounded-md">
               Get Started

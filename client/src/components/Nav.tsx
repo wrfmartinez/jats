@@ -17,14 +17,14 @@ const Nav = () => {
   return (
     <header>
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-6"
         aria-label="Global"
       >
         <div className="nav-brand flex lg:flex-1">
           <Link className="flex gap-2 items-center -m-1.5 p-1.5" to="/">
             <img
               className="brand-logo h-8 w-auto"
-              src="../../public/jats.svg"
+              src="/jats.svg"
               alt="jats logo"
             />
             <h2 className="brand-name text-2xl font-medium text-white">Jats</h2>
@@ -81,7 +81,7 @@ const Nav = () => {
             <Link className="flex gap-2 items-center -m-1.5 p-1.5" to="/">
               <img
                 className="brand-logo h-8 w-auto"
-                src="../../public/jats.svg"
+                src="/jats.svg"
                 alt="jats logo"
               />
               <h2 className="brand-name text-2xl font-medium text-white">
