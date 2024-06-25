@@ -48,15 +48,15 @@ const Nav = () => {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:items-center lg:gap-x-12">
-          <Link to="/about" className="text-white p-1.5 rounded-md hover:bg-zinc-800">About</Link>
+          <Link to="/about" className="text-white p-1.5 rounded-md hover:opacity-80">About</Link>
           <span className="text-white opacity-10">|</span>
-          <Link to="/features" className="text-white p-1.5 rounded-md hover:bg-zinc-800">Features</Link>
+          <Link to="/features" className="text-white p-1.5 rounded-md hover:opacity-80">Features</Link>
         </PopoverGroup>
         <div className="hidden lg:flex lg:items-center lg:gap-x-3 lg:flex-1 lg:justify-end">
-          <Link to="/create-account" className="text-white p-1.5 rounded-md hover:bg-zinc-800">
+          <Link to="/create-account" className="text-white p-1.5 rounded-md hover:opacity-80">
             Sign Up
           </Link>
-          <Link to="sign-in" className="text-white p-1.5">
+          <Link to="sign-in" className="text-white p-1.5 hover:opacity-80">
             Sign In <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
