@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  Popover,
-  PopoverButton,
-  PopoverGroup,
-} from "@headlessui/react";
+import { Dialog, DialogPanel, PopoverGroup } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const Nav = () => {
@@ -19,7 +12,7 @@ const Nav = () => {
 
   const closeMenu = () => {
     setMobileMenuOpen(false);
-  }
+  };
 
   return (
     <header>
@@ -48,15 +41,31 @@ const Nav = () => {
           </button>
         </div>
         <PopoverGroup className="hidden lg:flex lg:items-center lg:gap-x-12">
-          <Link to="/about" className="text-white p-1.5 rounded-md hover:opacity-80">About</Link>
+          <Link
+            to="/about"
+            className="text-white p-1.5 rounded-md hover:opacity-80 duration-150 ease-in"
+          >
+            About
+          </Link>
           <span className="text-white opacity-10">|</span>
-          <Link to="/features" className="text-white p-1.5 rounded-md hover:opacity-80">Features</Link>
+          <Link
+            to="/features"
+            className="text-white p-1.5 rounded-md hover:opacity-80 duration-150 ease-in"
+          >
+            Features
+          </Link>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:items-center lg:gap-x-3 lg:flex-1 lg:justify-end">
-          <Link to="/create-account" className="text-white p-1.5 rounded-md hover:opacity-80">
+        <div className="hidden z-10 lg:flex lg:items-center lg:gap-x-3 lg:flex-1 lg:justify-end">
+          <Link
+            to="/create-account"
+            className="text-white p-1.5 rounded-md hover:opacity-80 duration-150 ease-in"
+          >
             Sign Up
           </Link>
-          <Link to="sign-in" className="text-white p-1.5 hover:opacity-80">
+          <Link
+            to="sign-in"
+            className="text-white p-1.5 hover:opacity-80 duration-150 ease-in"
+          >
             Sign In <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
@@ -91,30 +100,30 @@ const Nav = () => {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-              <Link
-                        to="/about"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
-                      >
-                        About
-                      </Link>
-                      <Link
-                        to="/features"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
-                      >
-                        Features
-                      </Link>
-                      <Link
-                        to="/create-account"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
-                      >
-                        Sign Up
-                      </Link>
-                      <Link
-                        to="sign-in"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800"
-                      >
-                        Sign In
-                      </Link>
+                <Link
+                  to="/about"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800 duration-150 ease-in"
+                >
+                  About
+                </Link>
+                <Link
+                  to="/features"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800 duration-150 ease-in"
+                >
+                  Features
+                </Link>
+                <Link
+                  to="/create-account"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800 duration-150 ease-in"
+                >
+                  Sign Up
+                </Link>
+                <Link
+                  to="sign-in"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-zinc-800 duration-150 ease-in"
+                >
+                  Sign In
+                </Link>
               </div>
             </div>
           </div>
